@@ -1,24 +1,23 @@
 <template>
-  <ul>
-    <li v-for="project in projects">
-      <router-link
-        @mouseenter="getProjectLinks(project)"
-        :to="{ name: 'single-project', params: { slug: project.data.slug } }"
-        >{{ project.data.title }}</router-link
-      >
-
-      <span v-for="technology in project.technologies"
-        ><i :class="technology.icon" class="fs-3 ms-2"></i
-      ></span>
-    </li>
-  </ul>
+  <main class="container">
+    <h1>Projects</h1>
+    <div class="row">
+      <div v-for="project in projects" class="col-12 col-md-4 col-lg-3">
+        <AppCard :project="project" />
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
 import axios from "axios";
 import { store } from "../store.js";
+import AppCard from "../components/AppCard.vue";
 export default {
   name: "AppProjects",
+  components: {
+    AppCard,
+  },
   data() {
     return {
       store,
@@ -29,25 +28,9 @@ export default {
     getAllProjects() {
       axios.get(store.apiUrl + "projects").then((response) => {
         //console.log(response.data);
-        response.data.data.forEach((item) => {
-          this.projects.push({
-            data: item,
-            technologies: [],
-          });
-          //console.log(this.projects[index]);
-        });
+        this.projects = response.data.data;
       });
       console.log(this.projects);
-    },
-    getProjectLinks(project) {
-      //console.log(slug);
-      axios
-        .get(store.apiUrl + "projects/" + project.data.slug)
-        .then((response) => {
-          // console.log(response.data.data);
-          project.technologies = response.data.data.technologies;
-          //console.log(project.technologies);
-        });
     },
   },
   mounted() {

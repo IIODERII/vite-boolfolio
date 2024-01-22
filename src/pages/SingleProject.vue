@@ -1,6 +1,12 @@
 <template>
   <div>
     <h1>{{ project.title }}</h1>
+    <p>{{ project.description }}</p>
+    <img
+      class="w-50"
+      :src="store.imageBasePath + project.image"
+      :alt="project.title"
+    />
   </div>
 </template>
 

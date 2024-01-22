@@ -17,9 +17,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li v-for="link in links" class="nav-item">
-              <router-link :to="{ name: link.name }" class="nav-link active">{{
-                link.label
-              }}</router-link>
+              <router-link
+                :to="{ name: link.name }"
+                class="nav-link"
+                active-class="active"
+                >{{ link.label }}</router-link
+              >
             </li>
           </ul>
         </div>
