@@ -6,7 +6,7 @@
       <i
         v-for="technology in technologies"
         :class="technology.icon"
-        class="fs-3 me-2"
+        class="fs-3 ms-2"
       ></i>
     </div>
     <router-link
