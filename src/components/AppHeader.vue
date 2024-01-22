@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button
@@ -28,7 +28,7 @@
         </div>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 
 <script>

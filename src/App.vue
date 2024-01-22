@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
-  <router-view></router-view>
+  <router-view class="route"></router-view>
   <!-- <ul>
     <li v-for="project in projects" @click="getProjectLinks(project)">
       {{ project.data.title }}
@@ -9,12 +9,14 @@
       ></span>
     </li>
   </ul> -->
+  <AppFooter />
 </template>
 
 <script>
 import axios from "axios";
 import { store } from "./store";
 import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 export default {
   name: "App",
   data() {
@@ -22,8 +24,12 @@ export default {
       store,
     };
   },
-  components: { AppHeader },
+  components: { AppHeader, AppFooter },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.route {
+  min-height: 79.7vh;
+}
+</style>
