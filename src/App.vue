@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
-  <router-view class="route"></router-view>
+  <router-view :key="$route.path" class="route"></router-view>
   <!-- <ul>
     <li v-for="project in projects" @click="getProjectLinks(project)">
       {{ project.data.title }}

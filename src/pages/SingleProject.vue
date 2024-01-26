@@ -20,7 +20,13 @@
       </li>
     </ul>
     <h3>Categoria del progetto</h3>
-    <p>{{ project.category.name }}</p>
+    <p v-if="project.category">{{ project.category.name }}</p>
+
+    <router-link
+      class="btn btn-primary"
+      :to="{ name: 'single-project', params: { slug: 'boolflix' } }"
+      >Boolflix</router-link
+    >
   </div>
 </template>
 

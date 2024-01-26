@@ -1,7 +1,15 @@
 <template>
   <div class="card">
     <img :src="store.imageBasePath + project.image" :alt="project.title" />
-    <h3 class="m-0 py-2">{{ project.title }}</h3>
+    <div class="d-flex justify-content-between align-items-center">
+      <h3 class="m-0 py-2">{{ project.title }}</h3>
+      <a
+        class="btn btn-light btn-outline-secondary mx-2 p-1"
+        :href="project.url"
+        target="_blank"
+        ><i class="fs-3 fa-brands fa-github"></i
+      ></a>
+    </div>
     <div class="py-2">
       <i
         v-for="technology in technologies"
